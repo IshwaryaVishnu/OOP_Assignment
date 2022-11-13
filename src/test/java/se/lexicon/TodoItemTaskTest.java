@@ -15,7 +15,7 @@ public class TodoItemTaskTest {
                 new TodoItem(1,"Java Assignment","Complete the assignments for this week",person, LocalDate.now().plusDays(1));
         TodoItemTask todoItem = new TodoItemTask(1, toDo,person);
         String expectedResult = "id:1 Assigned:false ToDoItem:Java Assignment Assignee:ishu";
-        String actualResult = todoItem.getSummary();
+        String actualResult = todoItem.toString();
         Assert.assertEquals(expectedResult, actualResult);
     }
 }

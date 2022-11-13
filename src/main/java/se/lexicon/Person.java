@@ -1,5 +1,7 @@
 package se.lexicon;
 
+import java.util.Objects;
+
 public class Person {
 
     //Fields
@@ -7,6 +9,7 @@ public class Person {
     private String firstName;
     private String lastName;
     private String email;
+    private AppUser credentials;
 // Constructors
 public Person(int id,String firstName,String lastName,String email){
     this.id = id;
@@ -39,5 +42,34 @@ public Person(int id,String firstName,String lastName,String email){
             if(email == null) throw new IllegalArgumentException("LastName cannot be null");
             this.email = email;}
 
-    public String getSummary(){ return "id:" +id +   "  firstName :" + firstName + "  lastName : " + lastName +   "  email: " + email;}
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
+    public AppUser getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(AppUser credentials) {
+        this.credentials = credentials;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return getId() == person.getId() && getFirstName().equals(person.getFirstName()) && getLastName().equals(person.getLastName()) && getEmail().equals(person.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getFirstName(), getLastName(), getEmail());
+    }
 }

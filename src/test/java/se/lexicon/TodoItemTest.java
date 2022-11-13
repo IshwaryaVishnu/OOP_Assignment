@@ -12,8 +12,8 @@ public class TodoItemTest {
         Person person = new Person(1, "ishu", "sankar", "ishu27.v@gmail.com");
         TodoItem toDo =
                 new TodoItem(1,"Java Assignment","Complete the assignments for this week",person, LocalDate.now());
-        String expectedResult = "id:1  title: Java Assignment  taskDescription: Complete the assignments for this week  deadLine:2022-11-06 Done: false creator: ishu";
-        String actualResult = toDo.getSummary();
+        String expectedResult = "TodoItem{id=1, title='Java Assignment', taskDescription='Complete the assignments for this week', deadLine=2022-11-13, done=false}";
+        String actualResult = toDo.toString();
         Assert.assertEquals(expectedResult, actualResult);
     }
 

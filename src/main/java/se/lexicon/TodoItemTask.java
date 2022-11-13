@@ -1,5 +1,7 @@
 package se.lexicon;
 
+import java.util.Objects;
+
 public class TodoItemTask {
 //Fields
     private int id;
@@ -41,5 +43,26 @@ public class TodoItemTask {
             this.assignee = assignee;
         this.assigned= true;
     }
-    public String getSummary(){return "id:" + id +" Assigned:" + assigned + " ToDoItem:" + todoItem.getTitle() + " Assignee:" + assignee.getFirstName() ;}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TodoItemTask)) return false;
+        TodoItemTask that = (TodoItemTask) o;
+        return getId() == that.getId() && isAssigned() == that.isAssigned() && getTodoItem().equals(that.getTodoItem());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), isAssigned(), getTodoItem());
+    }
+
+    @Override
+    public String toString() {
+        return "TodoItemTask{" +
+                "id=" + id +
+                ", assigned=" + assigned +
+                ", todoItem=" + todoItem +
+                '}';
+    }
 }

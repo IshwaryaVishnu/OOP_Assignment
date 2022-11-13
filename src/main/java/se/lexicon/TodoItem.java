@@ -1,5 +1,6 @@
 package se.lexicon;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class TodoItem {
     //Fields
@@ -58,8 +59,30 @@ public class TodoItem {
 
         return false;
     }
-    public String getSummary(){ return "id:" + id + "  title: " + title + "  taskDescription: " + taskDescription + "  deadLine:" + deadLine +  " Done: " + done + " creator: " + creator.getFirstName();}
 
+    @Override
+    public String toString() {
+        return "TodoItem{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", taskDescription='" + taskDescription + '\'' +
+                ", deadLine=" + deadLine +
+                ", done=" + done +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TodoItem)) return false;
+        TodoItem todoItem = (TodoItem) o;
+        return getId() == todoItem.getId() && getTitle().equals(todoItem.getTitle()) && Objects.equals(getTaskDescription(), todoItem.getTaskDescription()) && getDeadLine().equals(todoItem.getDeadLine()) && Objects.equals(isDone(), todoItem.isDone());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getTitle(), getTaskDescription(), getDeadLine(), isDone());
+    }
 }
 
 
