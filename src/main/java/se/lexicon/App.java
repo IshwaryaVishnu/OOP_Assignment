@@ -1,6 +1,8 @@
 package se.lexicon;
 
 
+import se.lexicon.model.*;
+
 import java.time.LocalDate;
 
 public class App {

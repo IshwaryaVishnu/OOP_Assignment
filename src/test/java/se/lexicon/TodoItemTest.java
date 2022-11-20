@@ -2,6 +2,8 @@ package se.lexicon;
 
 import org.junit.Assert;
 import org.junit.Test;
+import se.lexicon.model.Person;
+import se.lexicon.model.TodoItem;
 
 import java.time.LocalDate;
 

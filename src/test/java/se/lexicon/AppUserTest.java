@@ -2,6 +2,8 @@ package se.lexicon;
 
 import org.junit.Assert;
 import org.junit.Test;
+import se.lexicon.model.AppRole;
+import se.lexicon.model.AppUser;
 
 public class AppUserTest {
 
